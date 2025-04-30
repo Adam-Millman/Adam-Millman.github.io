@@ -91,6 +91,115 @@ footer {
   font-size: 16px;
 }
 
+.iterations-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.iteration-wrapper {
+  width: 400px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.iteration-caption {
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+  font-style: italic;
+}
+
+.iteration-item {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-gray);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iteration-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.iteration-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iteration-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.iteration-item:hover .iteration-overlay {
+  opacity: 1;
+}
+
+.iteration-item:hover .iteration-text {
+  transform: translateY(0);
+}
+
+.iteration-item:hover img {
+  transform: scale(1.05);
+}
+
+.design-caption {
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto 0;
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.single-model-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.large-model {
+  width: 450px;
+  height: 350px;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 36px;
@@ -106,6 +215,34 @@ footer {
   
   .intro-section, .design-section {
     padding: 60px 5%;
+  }
+  
+  .iteration-wrapper {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+  
+  .iteration-caption {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .iteration-text {
+    font-size: 20px;
+  }
+  
+  .iteration-item {
+    height: 250px;
+  }
+  
+  .design-caption {
+    font-size: 14px;
+    margin: 30px 20px 0;
+  }
+  
+  .large-model {
+    width: calc(100% - 40px);
+    height: 250px;
   }
 }
   
