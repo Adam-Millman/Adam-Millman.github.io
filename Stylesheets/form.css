@@ -1,40 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #1a1a1a;
+  --secondary-color: #4a4a4a;
+  --accent-color: #808080;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #2a2a2a;
+}
+
+* {
+  font-family: 'Jost', sans-serif;
+}
+
 .intro-section, .design-section {
-    padding: 60px 10%;
-    text-align: center;
+  padding: 60px 10%;
+  text-align: center;
+  background-color: var(--light-gray);
+  margin-top: 0;
+}
+
+h1 {
+  color: var(--primary-color);
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  gap: 30px;
+}
+
+.centered-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid var(--medium-gray);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.centered-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  background-color: var(--dark-gray);
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
   }
   
-  h1, h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  h2 {
+    font-size: 28px;
   }
   
   p {
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
   }
   
-  .image-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 0;
+  .intro-section, .design-section {
+    padding: 60px 5%;
   }
-  
-  .centered-image {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
-    color: #333;
-    border-top: 1px solid #ddd;
-  }
+}
   

@@ -10,6 +10,7 @@
 body {
     background-color: white;
     color: black;
+    padding-top: 90px; /* Account for fixed navbar */
 }
 
 .hero-section {
@@ -18,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -90px; /* Offset the body padding for hero section */
 }
 
 .hero-logo {
