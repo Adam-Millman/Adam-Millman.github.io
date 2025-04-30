@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPUD - Capstone Project</title>
+    <link rel="stylesheet" href="../Stylesheets/main.css">
+    <link rel="stylesheet" href="../Stylesheets/navbar.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../Images-capstone/Spud logo black png-04.png" alt="SPUD Logo" style="width: 100%; height: auto;">
+            <!-- <div class="logo-text">SPUD</div> -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="Form.html">Form</a></li>
+                <li><a href="Functionality.html">Functionality</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero-section">
+        <div class="hero-logo">
+            <img src="../Images-capstone/Spud logos white png-02.png" alt="SPUD Logo" style="width: 250%; height: auto;">
+            <!-- <p>SPUD LOGO</p> -->
+        </div>
+    </section>
+    
+    <section class="intro-section">
+        <h1>What is SPUD?</h1>
+        <p>SPUD is an innovative capstone project that aims to revolutionize how we interact with technology. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc eget ultricies tincidunt, nisl neque aliquam nisl, eget aliquam nisl nunc eget nisl. Nullam auctor, nunc eget ultricies tincidunt, nisl neque aliquam nisl, eget aliquam nisl nunc eget nisl.</p>
+        <p>Our team designed SPUD to address common challenges in the industry while providing an elegant, user-friendly solution that can scale for various applications.</p>
+        
+        <div class="image-placeholder">
+            <img src="../Images-capstone/Potato controller png.png" alt="SPUD Logo" class="centered-image" style="width: 40%; height: auto;">
+        </div>
+    </section>
+    
+    <section class="why-section">
+        <h2>Why Make SPUD?</h2>
+        
+        <div class="text-area">
+            <h3>Money</h3>
+            <p>Accessiblity controllers are 2-3 times the price of a traditional gaming controller. In order to combat this a make sure SPUD was accessible to everyone, we tried our best to develop the controller around the price of traditional gaming controller. 
+                We achieved this through the utulization of 3D printers and Arduinos.</p>
+        </div>
+        
+        <div class="text-area">
+            <h3>Size</h3>
+            <p>Accessiblity controllers take up a lot of space. SPUD brings back the familiarity and compactness of traditional gaming controllers into hands</p>
+        </div>
+        
+        <div class="text-area">
+            <h3>User-Centered Design</h3>
+            <p>Every aspect of SPUD was designed with the end user in mind, ensuring intuitive interfaces and seamless experiences across all touchpoints.</p>
+        </div>
+        
+        <div class="text-area">
+            <h3>Sustainability</h3>
+            <p>We've built SPUD with long-term viability in mind, incorporating adaptable architecture that can evolve with changing technologies and user needs.</p>
+        </div>
+    </section>
+    
+    <section class="carousel-section">
+        <h2>SPUD Gallery</h2>
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel">
+                <div class="carousel-item"><img src="../Images-capstone/IMG_3873.PNG" alt="Image 1" style="width: 15%; height: auto;"></div>
+                <div class="carousel-item">Image 2</div>
+                <div class="carousel-item">Image 3</div>
+                <div class="carousel-item">Image 4</div>
+                <div class="carousel-item">Image 5</div>
+                <!-- Additional images will be added via JavaScript -->
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-control" onclick="prevSlide()">Previous</button>
+                <button class="carousel-control" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Generate additional carousel items
+        const carousel = document.getElementById('carousel');
+        const currentItems = carousel.querySelectorAll('.carousel-item').length;
+        
+        for (let i = currentItems + 1; i <= 15; i++) {
+            const newItem = document.createElement('div');
+            newItem.className = 'carousel-item';
+            newItem.textContent = `Image ${i}`;
+            carousel.appendChild(newItem);
+        }
+        
+        // Carousel functionality
+        let currentPosition = 0;
+        const itemWidth = 320; // Width + margin
+        const visibleItems = Math.floor(window.innerWidth / itemWidth);
+        const maxPosition = document.querySelectorAll('.carousel-item').length - visibleItems;
+        
+        function nextSlide() {
+            if (currentPosition < maxPosition) {
+                currentPosition++;
+                updateCarousel();
+            }
+        }
+        
+        function prevSlide() {
+            if (currentPosition > 0) {
+                currentPosition--;
+                updateCarousel();
+            }
+        }
+        
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
+        }
+        
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            const newVisibleItems = Math.floor(window.innerWidth / itemWidth);
+            const newMaxPosition = document.querySelectorAll('.carousel-item').length - newVisibleItems;
+            
+            if (currentPosition > newMaxPosition) {
+                currentPosition = newMaxPosition;
+                updateCarousel();
+            }
+        });
+    </script>
+</body>
+</html>

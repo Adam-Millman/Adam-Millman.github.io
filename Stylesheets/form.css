@@ -1,0 +1,40 @@
+.intro-section, .design-section {
+    padding: 60px 10%;
+    text-align: center;
+  }
+  
+  h1, h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+  }
+  
+  .centered-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    color: #333;
+    border-top: 1px solid #ddd;
+  }
+  
