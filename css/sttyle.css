@@ -1,0 +1,92 @@
+:root {
+    --primary-bg: #f5f0e6;
+    --accent-color: #b28b59;
+    --dark-brown: #5c4033;
+    --highlight: #d1c095;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--dark-brown);
+  }
+  
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .hero {
+    background-color: var(--highlight);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  section {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .features-list li {
+    margin-bottom: 1rem;
+  }
+  
+  .media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .media-grid img,
+  .media-grid video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
