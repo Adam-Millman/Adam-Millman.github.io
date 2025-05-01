@@ -50,11 +50,18 @@ h1::after {
 }
 
 h2 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 25px;
   letter-spacing: 0.5px;
+  color: black;
+}
+
+h3 {
+  color: black;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
 p {
@@ -67,46 +74,44 @@ p {
   margin-right: auto;
 }
 
-/* Timeline Container */
+/* Timeline container */
 .timeline-container {
-  position: sticky;
-  top: 100px; /* below navbar */
-  z-index: 90;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 20px;
+    position: sticky;
+    top: 100px; /* Space below navbar */
+    left: 20px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
-/* Timeline Box */
+/* Timeline box */
 .timeline {
-  width: 250px;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  padding: 20px 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  box-sizing: border-box;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box;
 }
 
-/* Timeline Header */
+/* Header inside timeline */
 .timeline-header {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .timeline-header h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .timeline-instructions {
@@ -116,27 +121,26 @@ p {
   text-align: center;
 }
 
-/* Progress Line */
+/* Vertical progress line */
 .timeline-progress {
-  position: absolute;
-  left: 27px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background-color: var(--accent-color);
-  transform: translateX(-50%);
-  z-index: 1;
-  border-radius: 3px;
+    position: absolute;
+    left: 27px;
+    top: 120px; /* Start below header */
+    bottom: 25px;
+    width: 3px;
+    background-color: var(--accent-color);
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 3px;
 }
 
-/* Tracker Image (Potato) */
+/* Tracker image (potato) */
 .timeline-tracker {
-  position: absolute;
-  left: 27px;
-  top: 20px; /* nudged down from top */
-  transform: translateX(-50%);
-  z-index: 3;
-  transition: top 0.3s ease;
+    position: absolute;
+    left: 27px;
+    transform: translateX(-50%);
+    z-index: 3;
+    transition: top 0.3s ease;
 }
 
 .timeline-tracker img {
@@ -146,15 +150,14 @@ p {
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
 }
 
-/* Timeline Entry */
+/* Entry wrapper for marker + label */
 .timeline-entry {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  padding-left: 20px;
-  gap: 12px;
-  cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    cursor: pointer;
 }
 
 /* Marker Dot (Perfect Circle) */
@@ -198,13 +201,12 @@ p {
   line-height: 1.4;
 }
 
-
-/* Main content alignment */
+/* Main content margin adjustment */
 main {
-  margin-left: 260px;
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 120px;
+    margin-left: 290px;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 120px;
 }
 
 /* Modal for images */
@@ -249,13 +251,12 @@ main {
 
 /* Enlargeable images */
 .enlargeable-image {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  max-width: 600px;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   margin: 20px auto;
   display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .enlargeable-image:hover {
@@ -304,11 +305,6 @@ main {
   position: relative;
   width: 100%;
   height: 300px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--light-gray);
-  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -411,7 +407,24 @@ html {
 
   main {
     margin-left: 0;
-    padding-top: 60px;
+    padding-top: 100px;
     padding-bottom: 100px;
   }
+}
+
+.user-testing {
+    margin-bottom: 40px;
+}
+
+.user-testing h3 {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.user-testing .enlargeable-image {
+    max-width: 600px !important;
+    width: 100%;
+    margin: 20px auto;
+    display: block;
 }
