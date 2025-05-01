@@ -34,8 +34,8 @@
     
     <section class="intro-section">
         <h1>What is SPUD?</h1>
-        <p>SPUD is an innovative capstone project that aims to revolutionize how we interact with technology. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc eget ultricies tincidunt, nisl neque aliquam nisl, eget aliquam nisl nunc eget nisl. Nullam auctor, nunc eget ultricies tincidunt, nisl neque aliquam nisl, eget aliquam nisl nunc eget nisl.</p>
-        <p>Our team designed SPUD to address common challenges in the industry while providing an elegant, user-friendly solution that can scale for various applications.</p>
+        <p>SPUD (Single-handed Peripheral for Universal Design) is an innovative gaming controller designed to revolutionize accessibility in gaming. Our mission is to create an affordable, compact, and versatile controller that enables one-handed gameplay without compromising on functionality or performance.</p>
+        <p>Developed as a capstone project at the University of Colorado Boulder, SPUD combines ergonomic design with cutting-edge technology to create a gaming controller that's both accessible and intuitive. Our controller features customizable button layouts, motion controls, and seamless integration with existing gaming platforms.</p>
         
         <div class="image-placeholder">
             <img src="/Images-capstone/Potato controller png.png" alt="SPUD Logo" class="centered-image" style="width: 40%; height: auto;">
@@ -70,6 +70,7 @@
     <section class="carousel-section">
         <h2>SPUD Gallery</h2>
         <div class="carousel">
+            <button class="carousel-control prev-button" onclick="prevSlide()">&#10094;</button>
             <div class="carousel-inner" id="carousel">
                 <div class="carousel-item">
                     <img src="Images-capstone/Spud logo black png-04.png" alt="SPUD Logo" class="carousel-image">
@@ -96,11 +97,8 @@
                     <img src="Images-capstone/iterations.png" alt="Design Evolution" class="carousel-image">
                 </div>
             </div>
-            <div class="carousel-controls">
-                <button class="carousel-control prev-button" onclick="prevSlide()">&#10094;</button>
-                <div class="carousel-dots" id="carousel-dots"></div>
-                <button class="carousel-control next-button" onclick="nextSlide()">&#10095;</button>
-            </div>
+            <button class="carousel-control next-button" onclick="nextSlide()">&#10095;</button>
+            <div class="carousel-dots" id="carousel-dots"></div>
         </div>
     </section>
     
@@ -140,7 +138,7 @@
         const carousel = document.getElementById('carousel');
         const items = document.querySelectorAll('.carousel-item');
         const dotsContainer = document.getElementById('carousel-dots');
-        
+
         // Create dots for each slide
         items.forEach((_, index) => {
             const dot = document.createElement('span');
@@ -148,46 +146,35 @@
             dot.onclick = () => goToSlide(index);
             dotsContainer.appendChild(dot);
         });
-        
+
         function updateDots() {
             const dots = document.querySelectorAll('.carousel-dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentPosition);
             });
         }
-        
+
         function updateCarousel() {
+            carousel.style.transition = 'transform 0.5s ease-in-out';
             carousel.style.transform = `translateX(-${currentPosition * 100}%)`;
             updateDots();
         }
-        
+
         function nextSlide() {
             currentPosition = (currentPosition + 1) % items.length;
             updateCarousel();
         }
-        
+
         function prevSlide() {
             currentPosition = (currentPosition - 1 + items.length) % items.length;
             updateCarousel();
         }
-        
+
         function goToSlide(index) {
             currentPosition = index;
             updateCarousel();
         }
-        
-        // Auto-advance carousel
-        let autoAdvance = setInterval(nextSlide, 5000);
-        
-        // Pause auto-advance on hover
-        carousel.parentElement.addEventListener('mouseenter', () => {
-            clearInterval(autoAdvance);
-        });
-        
-        carousel.parentElement.addEventListener('mouseleave', () => {
-            autoAdvance = setInterval(nextSlide, 5000);
-        });
-        
+
         // Initial setup
         updateDots();
     </script>

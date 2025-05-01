@@ -24,35 +24,63 @@
       </nav>
     </header>
 
-    <div class="timeline-container">
-      <div class="timeline-header">
-        <h2>Design Timeline</h2>
-        <p class="timeline-instructions">Hover over the markers to see milestones • Click to jump to that section</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-progress"></div>
-        <div class="timeline-tracker">
-          <img src="../Images-capstone/potato.png" alt="SPUD tracker" class="tracker-icon">
-        </div>
-        <div class="timeline-marker" onclick="scrollToSection('initial-renderings')"></div>
-        <div class="timeline-label">Initial Renderings - December 2024</div>
-        
-        <div class="timeline-marker" onclick="scrollToSection('user-testing')"></div>
-        <div class="timeline-label">User Testing - January 2025</div>
-        
-        <div class="timeline-marker" onclick="scrollToSection('first-design')"></div>
-        <div class="timeline-label">First Design - February 2025</div>
-        
-        <div class="timeline-marker" onclick="scrollToSection('second-design')"></div>
-        <div class="timeline-label">Second Digital Design - March 2025</div>
-        
-        <div class="timeline-marker" onclick="scrollToSection('third-design')"></div>
-        <div class="timeline-label">Third Design - March 2025</div>
-        
-        <div class="timeline-marker" onclick="scrollToSection('final-design')"></div>
-        <div class="timeline-label">Final Design - March 2025</div>
-      </div>
+<!-- TIMELINE SECTION START -->
+<div class="timeline-container">
+  <div class="timeline">
+    
+    <!-- Timeline Header -->
+    <div class="timeline-header">
+      <h2>Design Timeline</h2>
+      <p class="timeline-instructions">Hover over the markers to see milestones · Click to jump to that section</p>
     </div>
+
+    <!-- Progress Line & Tracker -->
+    <div class="timeline-progress"></div>
+    <div class="timeline-tracker">
+      <img src="../Images-capstone/potato.png" alt="SPUD tracker" class="tracker-icon">
+    </div>
+
+    <!-- Timeline Entries -->
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('initial-renderings')" title="Go to Initial Renderings"></div>
+      <div class="timeline-label">Initial Renderings - December 2024</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('user-testing')" title="Go to User Testing"></div>
+      <div class="timeline-label">User Testing - January 2025</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('first-design')" title="Go to First Design"></div>
+      <div class="timeline-label">First Design - February 2025</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('second-design')" title="Go to Second Digital Design"></div>
+      <div class="timeline-label">Second Digital Design - March 2025</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('third-design')" title="Go to Third Design"></div>
+      <div class="timeline-label">Third Design - March 2025</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('evolution-section')" title="Go to Design Evolution"></div>
+      <div class="timeline-label">Design Evolution - March 2025</div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-marker" onclick="scrollToSection('final-section')" title="Go to Final Design"></div>
+      <div class="timeline-label">Final Design - March 2025</div>
+    </div>
+
+  </div>
+</div>
+<!-- TIMELINE SECTION END -->
+
+
   
     <main>
       <section class="intro-section">
@@ -63,30 +91,30 @@
         <h2>Initial Renderings</h2>
         <p>Early 3D renderings drew inspiration from the Nintendo Wii remote and nunchuck, providing a familiar and ergonomic reference point. The intent was to reduce the learning curve by using forms already understood by gamers.</p>
         <div class="image-placeholder">
-          <img src="../Images-capstone/original render.png" alt="Initial Concept Render" class="enlargeable-image" style="max-width: 800px;">
+          <img src="../Images-capstone/original render.png" alt="Initial Concept Render" class="enlargeable-image">
         </div>
       </section>
   
       <section class="design-section" id="user-testing">
-    <h2>User Testing</h2>
-    <p>During development, our team initially focused on a single ambidextrous concept. While inclusive, this approach constrained form factor flexibility. To address this, user testing and feedback were incorporated to refine the physical design around comfort, reachability, and hand fit. User testing was conducted in two rounds to evaluate the ergonomics, usability, and comfort of the SPUD controller design. Each round provided valuable insights to refine the product form and user interaction.</p>
+        <h2>User Testing</h2>
+        <p>During development, our team initially focused on a single ambidextrous concept. While inclusive, this approach constrained form factor flexibility. To address this, user testing and feedback were incorporated to refine the physical design around comfort, reachability, and hand fit. User testing was conducted in two rounds to evaluate the ergonomics, usability, and comfort of the SPUD controller design. Each round provided valuable insights to refine the product form and user interaction.</p>
   
-    <div class="user-testing">
-      <h3>Round 1</h3>
+        <div class="user-testing">
+          <h3>Round 1</h3>
           <p>The initial round of user testing was structured to guide the controller's design direction. Participants were provided with a selection of buttons and modeling clay, and invited to freely prototype their vision of a one-handed controller tailored for first-person shooter (FPS) games.</p>
-      <div class="image-placeholder">
-        <img src="../Images-capstone/first user test results.png" alt="User Testing Round 1" class="enlargeable-image">
-      </div>
-    </div>
+          <div class="image-placeholder">
+            <img src="../Images-capstone/first user test results.png" alt="User Testing Round 1" class="enlargeable-image">
+          </div>
+        </div>
   
-    <div class="user-testing">
-      <h3>Round 2</h3>
-      <p>After the form was in place we were tasked with finding the preferred feeling for all of the buttons. This was accomplished by using controllers from trhoughout the genreations to get a sense of what feelings people liked, weither that was more tactile or a softer button press </p>
-      <div class="image-placeholder">
-        <img src="../Images-capstone/second user test.png" alt="User Testing Round 2" class="enlargeable-image">
-      </div>
-    </div>
-  </section>
+        <div class="user-testing">
+          <h3>Round 2</h3>
+          <p>After the form was in place we were tasked with finding the preferred feeling for all of the buttons. This was accomplished by using controllers from trhoughout the genreations to get a sense of what feelings people liked, weither that was more tactile or a softer button press </p>
+          <div class="image-placeholder">
+            <img src="../Images-capstone/second user test.png" alt="User Testing Round 2" class="enlargeable-image">
+          </div>
+        </div>
+      </section>
       
       <section class="design-section" id="first-design">
         <h2>Design Iterations</h2>
@@ -114,7 +142,7 @@
         <div class="iterations-container">
           <div class="iteration-wrapper">
             <div class="iteration-item">
-              <img src="../Images-capstone/womp top.png" alt="WOMP Top View" class="enlargeable-image">
+              <img src="../Images-capstone/Womp top.png" alt="WOMP Top View" class="enlargeable-image">
             </div>
           </div>
           
@@ -127,8 +155,6 @@
         <p class="design-caption">The second digital model included a lot more functionality as well as a more ergonomic design. Straying away from the ambidextrous design, we focused on creating a more ergonomic design that was more comfortable for one-handed use. It also included a wrist strap that we heard a lot of people wanted in the first round of testing.</p>
       </section>
 
-
-
       <section class="design-section" id="third-design">
         <h2>Third Design</h2>
         <div class="single-model-container">
@@ -139,17 +165,7 @@
         <p class="design-caption">The third iteration marked a significant evolution in our design process, introducing a more streamlined form factor. This version emphasized improved ergonomics with a curved grip design and optimized button placement based on user testing feedback. The model features integrated support structures and refined motion control housing, representing a major step toward our final design. This was also the point at which we designed to include buttons on the side of the controller spanning the entire controller.</p>
       </section>
 
-      <section class="design-section" id="final-design">
-        <h2>Fourth Design</h2>
-        <div class="single-model-container">
-          <div class="iteration-item large-model">
-            <img src="../Images-capstone/Fourth Model.png" alt="Fourth Design Model" class="enlargeable-image">
-          </div>
-        </div>
-        <p class="design-caption">Our fourth design iteration represents the culmination of our development process, incorporating all the lessons learned from previous versions. This model features enhanced ergonomics, refined button positioning, and improved internal component organization. The design prioritizes both functionality and user comfort, with special attention paid to the grip angle and trigger placement for optimal gaming performance.</p>
-      </section>
-
-      <section class="design-section" id="final-design">
+      <section class="design-section" id="evolution-section">
         <h2>Design Evolution</h2>
         <div class="single-model-container">
           <div class="iteration-item large-model">
@@ -157,7 +173,19 @@
           </div>
         </div>
         <p class="design-caption">This visual progression showcases SPUD's complete design evolution, from initial concept to final form. Each iteration brought significant improvements in ergonomics, functionality, and user experience. The journey reflects our commitment to user-centered design, with each version incorporating feedback and technological refinements to create an optimal one-handed gaming controller.</p>
-   </section>
+      </section>
+
+      <section class="design-section" id="final-section">
+        <h2>Final Design</h2>
+        <div class="single-model-container">
+          <div class="iteration-item large-model">
+            <img src="../Images-capstone/Fourth Model.png" alt="Final Design Model" class="enlargeable-image">
+          </div>
+        </div>
+        <p class="design-caption">Our final design iteration represents the culmination of our development process, incorporating all the lessons learned from previous versions. This model features enhanced ergonomics, refined button positioning, and improved internal component organization. The design prioritizes both functionality and user comfort, with special attention paid to the grip angle and trigger placement for optimal gaming performance.</p>
+      </section>
+
+      
 
    <!-- Image Modal -->
    <div id="imageModal" class="modal">
@@ -203,9 +231,28 @@
         const sections = document.querySelectorAll('.design-section');
         const timelineMarkers = document.querySelectorAll('.timeline-marker');
         const timelineLabels = document.querySelectorAll('.timeline-label');
+        const timelineContainer = document.querySelector('.timeline-container');
         const timelineTracker = document.querySelector('.timeline-tracker');
         const timeline = document.querySelector('.timeline');
+        const footer = document.querySelector('footer');
         const scrollPosition = window.scrollY;
+        
+        // Calculate footer position and timeline container height
+        const footerTop = footer.getBoundingClientRect().top + window.pageYOffset;
+        const timelineHeight = timelineContainer.offsetHeight;
+        const timelineBottom = scrollPosition + timelineHeight + 20; // 20px buffer
+        
+        // Check if timeline would overlap with footer
+        if (timelineBottom > footerTop) {
+          // Calculate how far above footer the timeline should stop
+          const topPosition = footerTop - timelineHeight - 20;
+          timelineContainer.style.position = 'absolute';
+          timelineContainer.style.top = `${topPosition}px`;
+        } else {
+          timelineContainer.style.position = 'fixed';
+          timelineContainer.style.top = '50%';
+          timelineContainer.style.transform = 'translateY(-50%)';
+        }
         
         // Find which section is currently in view
         let currentSection = '';
@@ -222,11 +269,11 @@
         timelineMarkers.forEach((marker, index) => {
           const targetSection = marker.getAttribute('onclick').split("'")[1];
           marker.classList.remove('active');
+          timelineLabels[index].classList.remove('active');
+          
           if (targetSection === currentSection) {
             marker.classList.add('active');
             timelineLabels[index].classList.add('active');
-          } else {
-            timelineLabels[index].classList.remove('active');
           }
         });
         
@@ -254,9 +301,6 @@
           }
         });
       });
-
-      // Call the scroll handler immediately to set initial state
-      window.dispatchEvent(new Event('scroll'));
 
       // Smooth scroll to section
       function scrollToSection(sectionId) {
