@@ -34,11 +34,15 @@
     
     <section class="intro-section">
         <h1>What is SPUD?</h1>
-        <p>SPUD (Single-handed Peripheral for Universal Design) is an innovative gaming controller designed to revolutionize accessibility in gaming. Our mission is to create an affordable, compact, and versatile controller that enables one-handed gameplay without compromising on functionality or performance.</p>
-        <p>Developed as a capstone project at the University of Colorado Boulder, SPUD combines ergonomic design with cutting-edge technology to create a gaming controller that's both accessible and intuitive. Our controller features customizable button layouts, motion controls, and seamless integration with existing gaming platforms.</p>
+        <p>SPUD is an innovative gaming controller designed to revolutionize accessibility in gaming. Our mission is to create an affordable, compact, and versatile controller that enables one-handed gameplay without compromising on functionality or performance.</p>
+        <p>Developed as a capstone project at the University of Colorado Boulder by Adam Millman and Kai Franks, SPUD combines ergonomic design with cutting-edge technology to create a gaming controller that's both accessible and intuitive. Our controller features customizable button layouts, motion controls, and seamless integration with existing gaming platforms.</p>
         
-        <div class="image-placeholder">
-            <img src="/Images-capstone/Potato controller png.png" alt="SPUD Logo" class="centered-image" style="width: 40%; height: auto;">
+
+        <div class="video-container">
+            <video controls width="100%" poster="Images-capstone/spud video thumbnail.png">
+                <source src="Videos/SPUD-Final-Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
     
@@ -62,8 +66,8 @@
         </div>
         
         <div class="text-area">
-            <h3>Sustainability</h3>
-            <p>We've built SPUD with long-term viability in mind, incorporating adaptable architecture that can evolve with changing technologies and user needs.</p>
+            <h3>Familiarity</h3>
+            <p>Basing Spud around controllers that already exist we were able to create a controller that has that familiar feel but also pack a punch.</p>
         </div>
     </section>
     
@@ -73,28 +77,32 @@
             <button class="carousel-control prev-button" onclick="prevSlide()">&#10094;</button>
             <div class="carousel-inner" id="carousel">
                 <div class="carousel-item">
-                    <img src="Images-capstone/Spud logo black png-04.png" alt="SPUD Logo" class="carousel-image">
+                    <img src="Images-capstone/Spud logo black png-04.png" alt="SPUD Logo" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/Potato controller png.png" alt="First Prototype" class="carousel-image">
+                    <img src="Images-capstone/Potato controller png.png" alt="First Prototype" class="gallery-image">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="Images-capstone/womp top.png" alt="WOMP Top View" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/ambidex controller.jpg" alt="Ambidextrous Design" class="carousel-image">
+                    <img src="Images-capstone/womp bottom.png" alt="WOMP Bottom View" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/womp top.png" alt="WOMP Top View" class="carousel-image">
+                    <img src="Images-capstone/Third Model.png" alt="Third Design" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/womp bottom.png" alt="WOMP Bottom View" class="carousel-image">
+                    <img src="Images-capstone/Fourth Model.png" alt="Fourth Design" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/Third Model.png" alt="Third Design" class="carousel-image">
+                    <img src="Images-capstone/iterations.png" alt="Design Evolution" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/Fourth Model.png" alt="Fourth Design" class="carousel-image">
+                    <img src="Images-capstone/Open Final.png" alt="Final Iteration - Open" class="gallery-image">
                 </div>
                 <div class="carousel-item">
-                    <img src="Images-capstone/iterations.png" alt="Design Evolution" class="carousel-image">
+                    <img src="Images-capstone/Closed Final.png" alt="Final Iteration - Closed" class="gallery-image">
                 </div>
             </div>
             <button class="carousel-control next-button" onclick="nextSlide()">&#10095;</button>
@@ -138,11 +146,12 @@
         const carousel = document.getElementById('carousel');
         const items = document.querySelectorAll('.carousel-item');
         const dotsContainer = document.getElementById('carousel-dots');
+        let isTransitioning = false;
 
         // Create dots for each slide
         items.forEach((_, index) => {
             const dot = document.createElement('span');
-            dot.className = 'carousel-dot';
+            dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
             dot.onclick = () => goToSlide(index);
             dotsContainer.appendChild(dot);
         });
@@ -155,28 +164,68 @@
         }
 
         function updateCarousel() {
-            carousel.style.transition = 'transform 0.5s ease-in-out';
-            carousel.style.transform = `translateX(-${currentPosition * 100}%)`;
+            if (isTransitioning) return;
+            isTransitioning = true;
+            
+            // Calculate the exact position
+            const position = -currentPosition * 100;
+            carousel.style.transform = `translateX(${position}%)`;
+            
             updateDots();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
         }
 
         function nextSlide() {
+            if (isTransitioning) return;
             currentPosition = (currentPosition + 1) % items.length;
             updateCarousel();
         }
 
         function prevSlide() {
+            if (isTransitioning) return;
             currentPosition = (currentPosition - 1 + items.length) % items.length;
             updateCarousel();
         }
 
         function goToSlide(index) {
+            if (isTransitioning || currentPosition === index) return;
             currentPosition = index;
             updateCarousel();
         }
 
+        // Add touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', () => {
+            const difference = touchStartX - touchEndX;
+            if (Math.abs(difference) > 50) {
+                if (difference > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        });
+
         // Initial setup
         updateDots();
+
+        // Optional: Auto-play
+        // let autoplayInterval = setInterval(nextSlide, 5000);
+        // carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+        // carousel.addEventListener('mouseleave', () => autoplayInterval = setInterval(nextSlide, 5000));
     </script>
 </body>
 </html>

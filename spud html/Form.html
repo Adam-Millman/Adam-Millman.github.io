@@ -79,8 +79,6 @@
   </div>
 </div>
 <!-- TIMELINE SECTION END -->
-
-
   
     <main>
       <section class="intro-section">
@@ -226,78 +224,54 @@
     </footer>
 
     <script>
-      // Update timeline progress and active marker based on scroll position
-      window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('.design-section');
-        const timelineMarkers = document.querySelectorAll('.timeline-marker');
-        const timelineLabels = document.querySelectorAll('.timeline-label');
-        const timelineContainer = document.querySelector('.timeline-container');
-        const timelineTracker = document.querySelector('.timeline-tracker');
+      // Update tracker position based on scroll
+      function updateTrackerPosition() {
         const timeline = document.querySelector('.timeline');
-        const footer = document.querySelector('footer');
-        const scrollPosition = window.scrollY;
+        const progressLine = document.querySelector('.timeline-progress');
+        const tracker = document.querySelector('.timeline-tracker');
         
-        // Calculate footer position and timeline container height
-        const footerTop = footer.getBoundingClientRect().top + window.pageYOffset;
-        const timelineHeight = timelineContainer.offsetHeight;
-        const timelineBottom = scrollPosition + timelineHeight + 20; // 20px buffer
-        
-        // Check if timeline would overlap with footer
-        if (timelineBottom > footerTop) {
-          // Calculate how far above footer the timeline should stop
-          const topPosition = footerTop - timelineHeight - 20;
-          timelineContainer.style.position = 'absolute';
-          timelineContainer.style.top = `${topPosition}px`;
-        } else {
-          timelineContainer.style.position = 'fixed';
-          timelineContainer.style.top = '50%';
-          timelineContainer.style.transform = 'translateY(-50%)';
+        if (timeline && progressLine && tracker) {
+          const progressRect = progressLine.getBoundingClientRect();
+          const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollProgress = Math.min(Math.max(window.pageYOffset / scrollableDistance, 0), 1);
+          const availableHeight = progressRect.height;
+          const newTop = 120 + (scrollProgress * availableHeight);
+          tracker.style.top = `${newTop}px`;
         }
-        
-        // Find which section is currently in view
+      }
+
+      // Add scroll event listener
+      window.addEventListener('scroll', updateTrackerPosition);
+      
+      // Initial position
+      window.addEventListener('load', updateTrackerPosition);
+      
+      // Update dots and sections as before
+      document.addEventListener('scroll', () => {
+        const sections = ['initial-renderings', 'user-testing', 'first-design', 'second-design', 'third-design', 'evolution-section', 'final-section'];
         let currentSection = '';
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 150; // Offset for earlier trigger
-          const sectionBottom = sectionTop + section.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSection = section.id;
+        
+        sections.forEach(sectionId => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              currentSection = sectionId;
+            }
           }
         });
         
-        // Update active marker and show its label
+        const timelineMarkers = document.querySelectorAll('.timeline-marker');
+        const timelineLabels = document.querySelectorAll('.timeline-label');
+        
         timelineMarkers.forEach((marker, index) => {
-          const targetSection = marker.getAttribute('onclick').split("'")[1];
+          const targetSection = marker.getAttribute('data-section');
           marker.classList.remove('active');
           timelineLabels[index].classList.remove('active');
           
           if (targetSection === currentSection) {
             marker.classList.add('active');
             timelineLabels[index].classList.add('active');
-          }
-        });
-        
-        // Update tracker position
-        if (timelineTracker && timeline) {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollProgress = Math.min(Math.max(window.pageYOffset / totalHeight, 0), 1);
-          const timelineHeight = timeline.offsetHeight;
-          const trackerHeight = timelineTracker.offsetHeight;
-          const maxTop = timelineHeight - trackerHeight;
-          const newTop = scrollProgress * maxTop;
-          timelineTracker.style.top = `${newTop}px`;
-        }
-      });
-
-      // Add hover functionality for timeline markers
-      document.querySelectorAll('.timeline-marker').forEach((marker, index) => {
-        marker.addEventListener('mouseenter', () => {
-          document.querySelectorAll('.timeline-label')[index].classList.add('active');
-        });
-        marker.addEventListener('mouseleave', () => {
-          const currentSection = document.querySelector('.timeline-marker.active');
-          if (currentSection !== marker) {
-            document.querySelectorAll('.timeline-label')[index].classList.remove('active');
           }
         });
       });
