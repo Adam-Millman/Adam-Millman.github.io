@@ -65,9 +65,9 @@ p {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
   justify-content: center;
-  margin: 50px 0;
+  margin: 60px 0;
 }
 
 .centered-image {
@@ -75,10 +75,12 @@ p {
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   height: auto;
-  max-width: 400px;
+  max-width: 800px;
   object-fit: contain;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
+  margin: 30px auto;
+  padding: 30px;
 }
 
 .centered-image:hover {
@@ -224,6 +226,12 @@ p {
   background-color: var(--light-gray);
   border-radius: 8px;
   padding: 20px;
+}
+
+.components-grid > .component-item:nth-child(1) .component-image,
+.components-grid > .component-item:nth-child(2) .component-image {
+  height: 270px;
+  padding: 28px;
 }
 
 .component-item h3 {
